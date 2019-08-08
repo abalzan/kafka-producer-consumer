@@ -16,3 +16,5 @@ kafka/bin/kafka-server-start.sh config/server.properties
 #### getting the params passing thought request
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic TopicNameHere
 
+## Postman Collection
+just need to import Kafka.postman_collection.json, to test it with postman

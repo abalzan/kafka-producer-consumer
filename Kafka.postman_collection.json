@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "0eaca18b-9aea-4e41-b4cb-0d7890e323ff",
+		"name": "Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "kafka v2 Book collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Book title\",\n\t\"author\":\"Book Author\",\n\t\"description\": \"This book is about...\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/kafka/v2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kafka",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kafka user collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"field 1 saasdasdasdmple\",\n\t\"surname\":\"field 2 asdasdasdasdasdsample\",\n\t\"address\": \"My address\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/kafka",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"kafka"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

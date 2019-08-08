@@ -1,6 +1,7 @@
 package com.andrei.kafkaproducerconsumer.controller;
 
-import com.andrei.kafkaproducerconsumer.model.SampleKafkaModel;
+import com.andrei.kafkaproducerconsumer.model.BookModel;
+import com.andrei.kafkaproducerconsumer.model.ClientModel;
 import com.google.gson.Gson;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -22,13 +23,18 @@ public class SampleKafkaController {
     }
 
     @PostMapping
-    public void post(@RequestBody SampleKafkaModel model) {
-        kafkaTemplate.send("TopicNameHere", jsonConverter.toJson(model));
+    public void post(@RequestBody ClientModel model) {
+        kafkaTemplate.send("ClientTopic", jsonConverter.toJson(model));
     }
 
-    @KafkaListener(topics = "TopicNameHere")
+    @PostMapping("/v2")
+    public void post(@RequestBody BookModel model) {
+        kafkaTemplate.send("BookTopic", jsonConverter.toJson(model));
+    }
+
+    @KafkaListener(topics = {"ClientTopic", "BookTopic"})
     public void getFromKafka(@RequestBody String model) {
-        SampleKafkaModel sampleKafkaModel = jsonConverter.fromJson(model, SampleKafkaModel.class);
-        System.out.println(sampleKafkaModel.toString());
+        Object clientModel = jsonConverter.fromJson(model, Object.class);
+        System.out.println(clientModel.toString());
     }
 }
